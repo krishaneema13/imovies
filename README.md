@@ -1,6 +1,14 @@
-# IMOVIES — Autonomous Cinema Ticket Booking & Management System 🎬
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a541ea6e-09bd-4745-b86f-dd2d9fbba067" /># IMOVIES — Autonomous Cinema Ticket Booking & Management System 🎬
 
 A modern, full-stack cinema ticket reservation and theatre management platform built with React, Node.js, Express, MongoDB, and Socket.IO.
+
+**Live demo:** https://imovies-yio0.onrender.com
+
+**Demo logins:**
+- Customer: `user@imovies.com` / `UserPassword123!`
+- Admin: `admin@imovies.com` / `AdminPassword123!`
+
+> Note: the app runs on a free server, so the first load may take up to a minute.
 
 ---
 
