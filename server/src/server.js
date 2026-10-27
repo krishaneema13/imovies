@@ -19,6 +19,8 @@ import showRoutes from './routes/showRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -107,6 +109,14 @@ app.use('/api/*', (req, res) => {
     success: false,
     message: `API endpoint '${req.originalUrl}' not found.`,
   });
+});
+// Serve the built frontend in production
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const distPath = path.join(__dirname, '../../dist');
+app.use(express.static(distPath));
+app.use((req, res, next) => {
+  if (req.method !== 'GET' || req.path.startsWith('/api') || req.path.startsWith('/socket.io')) return next();
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
 // Centralized Error Handling Middleware

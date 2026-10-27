@@ -5,7 +5,7 @@ const API_BASE = envApiUrl
     : `${envApiUrl.replace(/\/$/, '')}/api`
   : typeof window !== 'undefined' && window.location.port === '5173'
   ? '/api'
-  : 'http://localhost:5000/api';
+  : import.meta.env.VITE_API_URL || '/api';
 
 export const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('imovies_token');

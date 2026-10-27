@@ -18,7 +18,7 @@ export const SocketProvider = ({ children }) => {
       ? envUrl.replace(/\/api\/?$/, '')
       : typeof window !== 'undefined' && window.location.port === '5173'
       ? window.location.origin
-      : 'http://localhost:5000';
+      : import.meta.env.VITE_SOCKET_URL || window.location.origin;
 
     const s = io(socketUrl, {
       transports: ['websocket', 'polling'],
